@@ -14,7 +14,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "https://ambitious-card-163e10d9f7.media.strapiapp.com"
+        hostname: "ambitious-card-163e10d9f7.media.strapiapp.com"
       },
     ],
   },
