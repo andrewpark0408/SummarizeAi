@@ -832,7 +832,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     firstName: Attribute.String;
     lastName: Attribute.String;
     bio: Attribute.Text;
-    credits: Attribute.Integer & Attribute.DefaultTo<11>;
+    credits: Attribute.Integer & Attribute.DefaultTo<10>;
     image: Attribute.Media<'images'>;
     summaries: Attribute.Relation<
       'plugin::users-permissions.user',

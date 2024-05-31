@@ -76,7 +76,7 @@
     },
     "credits": {
       "type": "integer",
-      "default": 11,
+      "default": 10,
       "required": false
     },
     "image": {
