@@ -16,7 +16,7 @@ function LinkCard({ id, title, summary }: Readonly<LinkCardProps>) {
     <Link href={`/dashboard/summaries/${id}`}>
       <Card className="relative">
         <CardHeader>
-          <CardTitle className="leading-8 text-green-700">
+          <CardTitle className="leading-8 text-green-600">
             {title || "Video Summary"}
           </CardTitle>
         </CardHeader>
@@ -32,13 +32,14 @@ function LinkCard({ id, title, summary }: Readonly<LinkCardProps>) {
 
 interface SearchParamsProps {
   searchParams?: {
-    page?: string;
     query?: string;
+    page?: string;
   };
 }
 
+
 export default async function SummariesRoute({
-  searchParams,
+  searchParams
 }: Readonly<SearchParamsProps>) {
   const query = searchParams?.query ?? "";
   const currentPage = Number(searchParams?.page) || 1;

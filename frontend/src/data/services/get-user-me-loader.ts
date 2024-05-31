@@ -8,11 +8,14 @@ const query = qs.stringify({
 
 export async function getUserMeLoader() {
   const baseUrl = getStrapiURL();
+  console.log('Base URL: ', baseUrl);
 
   const url = new URL("/api/users/me", baseUrl);
   url.search = query;
+  console.log('Full URL: ', url.href);
 
   const authToken = await getAuthToken();
+  console.log('Auth token: ', authToken);
   if (!authToken) return { ok: false, data: null, error: null };
 
   try {
@@ -24,16 +27,13 @@ export async function getUserMeLoader() {
       },
       cache: "no-cache",
     });
+    console.log('Response status: ', response.status);
     const data = await response.json();
+    console.log('Response data: ', data);
     if (data.error) return { ok: false, data: null, error: data.error };
-
-    if (data.credits == null) {
-      data.credits = 10;
-    }
-
     return { ok: true, data: data, error: null };
   } catch (error) {
-    console.log(error);
+    console.error('Error occurred: ', error);
     return { ok: false, data: null, error: error };
   }
 }
